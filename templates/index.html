@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<head>
+  <title>OpenAI Financial Services Bot</title>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='finance.png') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+</head>
+
+<body>
+  <img src="{{url_for('static', filename='finance.png')}}" alt="OpenAI Financial Services Bot" id="manpng"/>
+  <h3>Investment Information</h3>
+  <form action="/" method="post">
+    <input type="text" name="investment_type" placeholder="Enter an investment type" required />
+    <input type="submit" value="Get information" />
+  </form>
+  {% if result %}
+  <div class="result">{{ result }}</div>
+  {% endif %}
+</body>
