@@ -2,25 +2,34 @@
 <head>
   <title>OpenAI Budgeting Assistant</title>
   <link rel="shortcut icon" href="{{ url_for('static', filename='budget.png') }}" />
-  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='budget.css') }}" />
 </head>
 
 <body>
-  <img src="{{url_for('static', filename='budget.png')}}" alt="OpenAI Budgeting Assistant" id="manpng"/>
-  <h3>Budgeting Assistant</h3>
-  <form action="/budgeting" method="post">
+  <h3 class="title">Budgeting Assistant</h3>
+  <form action="/budgeting" method="post" id="budgetForm">
     {{ form.hidden_tag() }}
-    {{ form.income.label }}<br>
-    {{ form.income(type='number', required=True) }}<br>
-    {{ form.rent.label }}<br>
-    {{ form.rent(type='number') }}<br>
-    {{ form.utilities.label }}<br>
-    {{ form.utilities(type='number') }}<br>
-    {{ form.groceries.label }}<br>
-    {{ form.groceries(type='number') }}<br>
-    {{ form.others.label }}<br>
-    {{ form.others(type='number') }}<br>
-    <input type="submit" value="Calculate Budget">
+    <div class="form-group">
+      {{ form.income.label }}<br>
+      {{ form.income(class='form-control', type='number', required=True) }}<br>
+    </div>
+    <div class="form-group">
+      {{ form.rent.label }}<br>
+      {{ form.rent(class='form-control', type='number') }}<br>
+    </div>
+    <div class="form-group">
+      {{ form.utilities.label }}<br>
+      {{ form.utilities(class='form-control', type='number') }}<br>
+    </div>
+    <div class="form-group">
+      {{ form.groceries.label }}<br>
+      {{ form.groceries(class='form-control', type='number') }}<br>
+    </div>
+    <div class="form-group">
+      {{ form.others.label }}<br>
+      {{ form.others(class='form-control', type='number') }}<br>
+    </div>
+    <input type="submit" value="Calculate Budget" class="submitBtn">
   </form>
   {% if result %}
   <div class="result">{{ result }}</div>
