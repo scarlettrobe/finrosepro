@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+  <title>OpenAI Budgeting Assistant</title>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='budget.png') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+</head>
+
+<body>
+  <img src="{{url_for('static', filename='budget.png')}}" alt="OpenAI Budgeting Assistant" id="manpng"/>
+  <h3>Budgeting Assistant</h3>
+  <form action="/budgeting" method="post">
+    {{ form.hidden_tag() }}
+    {{ form.income.label }}<br>
+    {{ form.income(type='number', required=True) }}<br>
+    {{ form.rent.label }}<br>
+    {{ form.rent(type='number') }}<br>
+    {{ form.utilities.label }}<br>
+    {{ form.utilities(type='number') }}<br>
+    {{ form.groceries.label }}<br>
+    {{ form.groceries(type='number') }}<br>
+    {{ form.others.label }}<br>
+    {{ form.others(type='number') }}<br>
+    <input type="submit" value="Calculate Budget">
+  </form>
+  {% if result %}
+  <div class="result">{{ result }}</div>
+  {% endif %}
+</body>

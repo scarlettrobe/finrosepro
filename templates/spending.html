@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+  <title>OpenAI Spending Assistant</title>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='spend.png') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+</head>
+
+<body>
+  <img src="{{url_for('static', filename='spend.png')}}" alt="OpenAI Spending Assistant" id="manpng"/>
+  <h3>Spending Assistant</h3>
+  <form action="/spending" method="post">
+    {{ form.hidden_tag() }}
+    {{ form.food.label }}<br>
+    {{ form.food(type='number') }}<br>
+    {{ form.entertainment.label }}<br>
+    {{ form.entertainment(type='number') }}<br>
+    {{ form.transportation.label }}<br>
+    {{ form.transportation(type='number') }}<br>
+    {{ form.others.label }}<br>
+    {{ form.others(type='number') }}<br>
+    <input type="submit" value="Analyze Spending">
+  </form>
+  {% if result %}
+  <div class="result">{{ result }}</div>
+  {% endif %}
+</body>

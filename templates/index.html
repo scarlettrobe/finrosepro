@@ -9,10 +9,16 @@
   <img src="{{url_for('static', filename='finance.png')}}" alt="OpenAI Financial Services Bot" id="manpng"/>
   <h3>Investment Information</h3>
   <form action="/" method="post">
-    <input type="text" name="investment_type" placeholder="Enter an investment type" required />
+    {{ form.hidden_tag() }}
+    {{ form.type.label }}<br>
+    {{ form.type(size=32, required=True) }}<br>
     <input type="submit" value="Get information" />
   </form>
   {% if result %}
   <div class="result">{{ result }}</div>
   {% endif %}
+
+  <button onclick="window.location.href='/budgeting'">Go to Budgeting</button>
+  <button onclick="window.location.href='/spending'">Go to Spending</button>
+  
 </body>
