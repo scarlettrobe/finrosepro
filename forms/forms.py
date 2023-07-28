@@ -5,7 +5,6 @@ from wtforms.validators import DataRequired
 
 class InvestmentForm(FlaskForm):
     type = StringField('Type', validators=[DataRequired()])
-    information = StringField('Information', validators=[DataRequired()])
     submit = SubmitField('Submit')
 
 class BudgetForm(FlaskForm):
