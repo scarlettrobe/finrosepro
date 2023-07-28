@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<head>
+  <title>OpenAI Assistant</title>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='icon.png') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='navbar.css') }}" />
+</head>
+
+<body>
+  <nav id="navbar">
+    <img src="{{url_for('static', filename='logo.png')}}" alt="OpenAI Assistant" id="logo"/>
+    <ul>
+      <li><a href="/budgeting">Budgeting Assistant</a></li>
+      <li><a href="/spending">Spending Assistant</a></li>
+    </ul>
+  </nav>
+</body>

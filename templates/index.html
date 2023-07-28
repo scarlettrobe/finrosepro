@@ -2,23 +2,24 @@
 <head>
   <title>OpenAI Financial Services Bot</title>
   <link rel="shortcut icon" href="{{ url_for('static', filename='finance.png') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='navbar.css') }}" />
   <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
 </head>
 
 <body>
-  <img src="{{url_for('static', filename='finance.png')}}" alt="OpenAI Financial Services Bot" id="manpng"/>
-  <h3>Investment Information</h3>
-  <form action="/" method="post">
+  {% include 'navbar.html' %}
+  
+  <img src="{{url_for('static', filename='finance.png')}}" alt="OpenAI Financial Services Bot" id="logo"/>
+  <h3 class="title">Investment Information</h3>
+  <form action="/" method="post" id="investmentForm">
     {{ form.hidden_tag() }}
-    {{ form.type.label }}<br>
-    {{ form.type(size=32, required=True) }}<br>
-    <input type="submit" value="Get information" />
+    <div class="form-group">
+      {{ form.type.label }}<br>
+      {{ form.type(class='form-control', size=32, required=True) }}<br>
+    </div>
+    <input type="submit" value="Get information" class="submitBtn"/>
   </form>
   {% if result %}
   <div class="result">{{ result }}</div>
   {% endif %}
-
-  <button onclick="window.location.href='/budgeting'">Go to Budgeting</button>
-  <button onclick="window.location.href='/spending'">Go to Spending</button>
-  
 </body>
